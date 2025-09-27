@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties</title>
+  <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
+</head>
+<body>
+  {% include 'housing/navbar.html' %}
+
+  <h2>All Properties</h2>
+  <div class="card-container">
+    {% for p in properties %}
+    <div class="card">
+      <img src="{{ p.image.url }}" alt="{{ p.title }}">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.location }}</p>
+      <p><b>${{ p.price }}</b></p>
+      <a href="{% url 'details' p.id %}">View Details</a>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact</title>
+  <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
+</head>
+<body>
+  {% include 'housing/navbar.html' %}
+
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

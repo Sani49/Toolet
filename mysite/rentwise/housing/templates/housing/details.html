@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ property.title }}</title>
+  <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
+</head>
+<body>
+  {% include 'housing/navbar.html' %}
+
+  <div class="details-container">
+    <img src="{{ property.image.url }}" alt="{{ property.title }}">
+    <h2>{{ property.title }}</h2>
+    <p>Location: {{ property.location }}</p>
+    <p>Price: ${{ property.price }}</p>
+    <p>{{ property.description }}</p>
+    <button>Contact Owner</button>
+  </div>
+</body>
+</html>

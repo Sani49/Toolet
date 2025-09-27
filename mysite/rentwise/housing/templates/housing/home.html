@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentWise</title>
+  <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
+</head>
+<body>
+  {% include 'housing/navbar.html' %}
+
+  <section class="hero">
+    <h1>Find Your Perfect Home</h1>
+    <p>Search verified houses & apartments</p>
+    <div class="search-box">
+      <input type="text" placeholder="Enter location">
+      <input type="text" placeholder="Price range">
+      <button>Search</button>
+    </div>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Properties</h2>
+    <div class="card-container">
+      {% for p in properties %}
+      <div class="card">
+        {% if p.image %}
+          <img src="{{ p.image.url }}" alt="{{ p.title }}">
+        {% endif %}
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.location }}</p>
+        <p><b>${{ p.price }}</b></p>
+        <a href="{% url 'details' p.id %}">View Details</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</body>
+</html>
