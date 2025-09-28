@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2c3e50;
+  background: #34495e;
   padding: 15px 30px;
   color: white;
 }
@@ -63,3 +63,4 @@ button {
   border: none;
   cursor: pointer;
 }
+

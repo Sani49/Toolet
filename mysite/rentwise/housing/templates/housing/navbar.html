@@ -1,5 +1,8 @@
+{% load static %}
 <header class="navbar">
-  <div class="logo">RentWise</div>
+  <a href="{% url 'home' %}">
+    <img src="{% static 'housing/images/qqqqqqqqqq.png' %}" height="120" width="140" alt="RentWise Logo"/>
+  </a>
   <nav>
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'properties' %}">Properties</a>

@@ -2,19 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'housing/css/style.css' %}">
 </head>
 <body>
   {% include 'housing/navbar.html' %}
-
-  <div class="form-container">
     <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="username">
-      <input type="password" placeholder="Password">
-      <button type="submit">Login</button>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Login</button>
     </form>
-  </div>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
